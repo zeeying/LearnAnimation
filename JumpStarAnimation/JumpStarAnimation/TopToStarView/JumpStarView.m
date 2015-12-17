@@ -28,7 +28,7 @@
     self = [super init];
     
     if (self) {
-        
+//        self.clipsToBounds = YES;
     }
     
     return self;
@@ -50,6 +50,16 @@
         [self addSubview:self.shadowView];
     }
 }
+
+//- (void)drawRect:(CGRect)rect
+//{
+//    [super drawRect:rect];
+//    
+//    UIBezierPath *path = [UIBezierPath bezierPathWithRect:CGRectInset(CGRectMake(0, 0, rect.size.width, rect.size.height), 1, 1)];
+//    path.lineWidth = 1;
+//    [[UIColor blackColor] setStroke];
+//    [path stroke];
+//}
 
 - (void)setState:(STATE)state
 {
