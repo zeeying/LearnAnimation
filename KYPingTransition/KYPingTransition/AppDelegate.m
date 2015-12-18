@@ -21,11 +21,13 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
     UINavigationController *navc = [[UINavigationController alloc] initWithRootViewController:[ViewController new]];
-    navc.navigationBarHidden = YES;
+    //别调用这句！！！否则在第二个ViewController利用手势返回的时候，如果取消返回，将导致动画卡住，直到动画时间结束
+//    navc.navigationBarHidden = YES;
+    navc.navigationBar.hidden = YES;
     
     self.window.rootViewController = navc;
     
-    self.window.backgroundColor = [UIColor whiteColor];
+    self.window.backgroundColor = [UIColor redColor];
     [self.window makeKeyAndVisible];
     return YES;
 }

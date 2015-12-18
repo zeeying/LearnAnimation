@@ -77,4 +77,13 @@
     [self.transitionContext viewControllerForKey:UITransitionContextToViewControllerKey].view.layer.mask = nil;
 }
 
+- (void)finishInteractiveTransition
+{
+    [self.transitionContext finishInteractiveTransition];
+}
+
+- (void)cancelInteractiveTransition
+{
+    [self.transitionContext cancelInteractiveTransition];
+}
 @end

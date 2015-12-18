@@ -19,6 +19,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     self.navigationController.delegate = self;
+//    self.navigationController.navigationBar.hidden = YES;
 }
 
 - (void)viewDidLoad {
@@ -32,7 +33,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)push:(id)sender
+- (IBAction)push:(id)sender
 {
     [self.navigationController pushViewController:[SecondViewController new] animated:YES];
 }

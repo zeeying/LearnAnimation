@@ -8,19 +8,24 @@
 
 #import "SecondViewController.h"
 #import "PingInvertTransition.h"
+#import "KYPercentDriventInteractiveTransition.h"
 
 @interface SecondViewController ()
+
+@property (strong, nonatomic) PingInvertTransition *pingInvertTransition;
 
 @end
 
 @implementation SecondViewController
 {
-    UIPercentDrivenInteractiveTransition *percentTransition;
+    UIPercentDrivenInteractiveTransition *percentInteractiveTransition;
+//    UIPercentDrivenInteractiveTransition *percentTransition;
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     self.navigationController.delegate = self;
+//    self.navigationController.navigationBar.hidden = YES;
 }
 
 - (void)viewDidLoad {
@@ -43,31 +48,45 @@
 
 - (void)edgePan:(UIScreenEdgePanGestureRecognizer *)recognizer
 {
-    CGFloat per = [recognizer translationInView:self.view].x / (self.view.bounds.size.width);
-    per = MIN(1.0, (MAX(0.0, per)));
+//    self.pingInvertTransition.shouldBeginInteractiveTransition = YES;
+//    
+//    if (recognizer.state == UIGestureRecognizerStateBegan) {
+//        [self.navigationController popViewControllerAnimated:YES];
+//    }
+//    [self.pingInvertTransition handleGesture:recognizer];
     
-    if (recognizer.state == UIGestureRecognizerStateBegan)
-    {
-        percentTransition = [[UIPercentDrivenInteractiveTransition alloc] init];
-        [self.navigationController popViewControllerAnimated:YES];
-    } else if (recognizer.state == UIGestureRecognizerStateChanged)
-    {
-        [percentTransition updateInteractiveTransition:per];
-    } else if (recognizer.state == UIGestureRecognizerStateEnded || recognizer.state == UIGestureRecognizerStateCancelled)
-    {
-        if (per > 0.3) {
-            [percentTransition finishInteractiveTransition];
-        } else {
-            [percentTransition cancelInteractiveTransition];
-        }
-        
-        percentTransition = nil;
+    float progress = [recognizer translationInView:recognizer.view].x / (recognizer.view.bounds.size.width * 1.0);
+    progress = fabsf(progress);
+    progress = MIN(1.0, MAX(0.0, progress));
+    
+    switch (recognizer.state) {
+        case UIGestureRecognizerStateBegan:
+            percentInteractiveTransition = [KYPercentDriventInteractiveTransition new];
+            [self.navigationController popViewControllerAnimated:YES];
+            break;
+        case UIGestureRecognizerStateChanged:
+            [percentInteractiveTransition updateInteractiveTransition:progress];
+            break;
+        case UIGestureRecognizerStateCancelled:
+        case UIGestureRecognizerStateEnded:
+            if (progress > 0.5) {
+                percentInteractiveTransition.completionSpeed = progress;
+                [percentInteractiveTransition finishInteractiveTransition];
+            } else {
+                percentInteractiveTransition.completionSpeed = 1.0 - progress;
+                [percentInteractiveTransition cancelInteractiveTransition];
+            }
+            percentInteractiveTransition = nil;
+            break;
+            
+        default:
+            break;
     }
 }
 
 - (id<UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController interactionControllerForAnimationController:(id<UIViewControllerAnimatedTransitioning>)animationController
 {
-    return percentTransition;
+    return percentInteractiveTransition;
 }
 /*
 #pragma mark - Navigation
@@ -81,11 +100,15 @@
 
 - (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC
 {
-    if (operation == UINavigationControllerOperationPop) {
-        return [PingInvertTransition new];
-    } else {
-        return nil;
+    return (operation == UINavigationControllerOperationPop) ? self.pingInvertTransition : nil;
+}
+
+- (PingInvertTransition *)pingInvertTransition
+{
+    if (!_pingInvertTransition) {
+        _pingInvertTransition = [[PingInvertTransition alloc] init];
     }
+    return _pingInvertTransition;
 }
 
 @end

@@ -20,7 +20,7 @@
 
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext
 {
-    return 0.7f;
+    return 7.f;
 }
 
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
@@ -30,10 +30,18 @@
     SecondViewController *fromVC = (SecondViewController *)[transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     ViewController *toVC = (ViewController *)[transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     UIView *containerView = [transitionContext containerView];
+    containerView.backgroundColor = [UIColor yellowColor];
     UIButton *button = toVC.button;
     
     [containerView addSubview:toVC.view];
     [containerView addSubview:fromVC.view];
+    UILabel *label = [UILabel new];
+    label.text = @"In transition!!";
+    label.textColor = [UIColor yellowColor];
+    label.font = [UIFont systemFontOfSize:34];
+    [label sizeToFit];
+    label.center = containerView.center;
+    [containerView addSubview:label];
     
     UIBezierPath *finalPath = [UIBezierPath bezierPathWithOvalInRect:button.frame];
     
@@ -66,14 +74,41 @@
     pingAnimation.toValue = (__bridge id)(finalPath.CGPath);
     pingAnimation.duration = [self transitionDuration:transitionContext];
     pingAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    
     pingAnimation.delegate = self;
+    pingAnimation.removedOnCompletion = NO;
     
     [maskLayer addAnimation:pingAnimation forKey:@"pathInvert"];
+    
+    
+    //检验通过UIView的动画接口左拉返回松开手势时会不会继续动画---调用UIPercentDrivenTransition finishInteractiveTransition会继续执行
+//    [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0.0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+//        fromVC.view.center = CGPointMake(fromVC.view.bounds.size.width * 3 / 2, fromVC.view.bounds.size.height / 2);
+//    } completion: ^(BOOL finished) {
+//        [self.transitionContext completeTransition:![self.transitionContext transitionWasCancelled]];
+//    }];
+    
+    //检验通过CABasicAnimation -- 不会继续执行，@See also http://stackoverflow.com/questions/22868376/uipercentdriveninteractivetransition-with-cabasicanimation
+//    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position.x"];
+//    animation.fromValue = @(fromVC.view.center.x);
+//    animation.toValue = @(fromVC.view.bounds.size.width * 3 / 2);
+//    animation.duration = [self transitionDuration:transitionContext];
+//    animation.delegate = self;
+//    
+//    [fromVC.view.layer addAnimation:animation forKey:@"position"];
+}
+
+
+
+- (void)animationEnded:(BOOL)transitionCompleted
+{
+    NSLog(@"%@", NSStringFromSelector(_cmd));
 }
 
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
 {
+    UIView *containView = [self.transitionContext containerView];
+    NSLog(@"%d", containView.hidden);
+    NSLog(@"animationDidStop!!!");
     [self.transitionContext completeTransition:![self.transitionContext transitionWasCancelled]];
     [self.transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey].view.layer.mask = nil;
     [self.transitionContext viewControllerForKey:UITransitionContextToViewControllerKey].view.layer.mask = nil;
