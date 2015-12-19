@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		411307B61C24F5CB000BD582 /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 411307B51C24F5CB000BD582 /* Reveal.framework */; };
 		4180106F1C22576500B5A8AA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4180106E1C22576500B5A8AA /* main.m */; };
 		418010721C22576500B5A8AA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 418010711C22576500B5A8AA /* AppDelegate.m */; };
 		418010751C22576500B5A8AA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 418010741C22576500B5A8AA /* ViewController.m */; };
@@ -20,7 +21,6 @@
 		4180109F1C2265E900B5A8AA /* PingInvertTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4180109E1C2265E900B5A8AA /* PingInvertTransition.m */; };
 		41E382B81C23A4B6009889B0 /* KYPercentDriventInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 41E382B71C23A4B6009889B0 /* KYPercentDriventInteractiveTransition.m */; };
 		41E383001C23DDD3009889B0 /* ZYPercentDrivenInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 41E382FF1C23DDD3009889B0 /* ZYPercentDrivenInteractiveTransition.m */; };
-		41E383021C24003B009889B0 /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41E383011C24003B009889B0 /* Reveal.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		411307B51C24F5CB000BD582 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 		418010691C22576500B5A8AA /* KYPingTransition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KYPingTransition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4180106D1C22576500B5A8AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4180106E1C22576500B5A8AA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -58,7 +59,6 @@
 		41E382B71C23A4B6009889B0 /* KYPercentDriventInteractiveTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KYPercentDriventInteractiveTransition.m; path = class/KYPercentDriventInteractiveTransition.m; sourceTree = "<group>"; };
 		41E382FE1C23DDD3009889B0 /* ZYPercentDrivenInteractiveTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYPercentDrivenInteractiveTransition.h; sourceTree = "<group>"; };
 		41E382FF1C23DDD3009889B0 /* ZYPercentDrivenInteractiveTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYPercentDrivenInteractiveTransition.m; sourceTree = "<group>"; };
-		41E383011C24003B009889B0 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41E383021C24003B009889B0 /* Reveal.framework in Frameworks */,
+				411307B61C24F5CB000BD582 /* Reveal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,7 +83,7 @@
 		418010601C22576500B5A8AA = {
 			isa = PBXGroup;
 			children = (
-				41E383011C24003B009889B0 /* Reveal.framework */,
+				411307B51C24F5CB000BD582 /* Reveal.framework */,
 				4180106B1C22576500B5A8AA /* KYPingTransition */,
 				418010851C22576500B5A8AA /* KYPingTransitionTests */,
 				4180106A1C22576500B5A8AA /* Products */,

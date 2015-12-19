@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "ZYPercentDrivenInteractiveTransition.h"
 
-@interface PingInvertTransition : NSObject <UIViewControllerAnimatedTransitioning>
-//@interface PingInvertTransition : ZYPercentDrivenInteractiveTransition
+//@interface PingInvertTransition : NSObject <UIViewControllerAnimatedTransitioning>
+@interface PingInvertTransition : ZYPercentDrivenInteractiveTransition
 
 @end

@@ -47,8 +47,12 @@
     CALayer *containerLayer = [_transitionContext containerView].layer;
     containerLayer.speed = -1.0;
     containerLayer.beginTime = CACurrentMediaTime();
-    CGFloat delay = ((1.0-self.completionSpeed) * [self transitionDuration:_transitionContext]) + 0.00;
+    CGFloat delay = ((1.0-self.completionSpeed) * [self transitionDuration:_transitionContext]) + 0.05;
+//    CFTimeInterval current = [containerLayer convertTime:CACurrentMediaTime() fromLayer:nil];
+//    NSLog(@"%f - %f = %f", current, delay, current - delay);
+    //在动画回滚到初始状态的时候，要还原speed, 否则影响下次执行的动画
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        NSLog(@"dis time: %f", [containerLayer convertTime:CACurrentMediaTime() fromLayer:nil]);
         containerLayer.speed = 1.0;
     });
 }

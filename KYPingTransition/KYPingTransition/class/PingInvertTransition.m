@@ -20,12 +20,14 @@
 
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext
 {
-    return 7.f;
+    return 0.7f;
 }
 
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
 {
     self.transitionContext = transitionContext;
+    
+//    NSLog(@"star time: %f", [transitionContext.containerView.layer convertTime:CACurrentMediaTime() fromLayer:nil]);
     
     SecondViewController *fromVC = (SecondViewController *)[transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     ViewController *toVC = (ViewController *)[transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
@@ -35,13 +37,8 @@
     
     [containerView addSubview:toVC.view];
     [containerView addSubview:fromVC.view];
-    UILabel *label = [UILabel new];
-    label.text = @"In transition!!";
-    label.textColor = [UIColor yellowColor];
-    label.font = [UIFont systemFontOfSize:34];
-    [label sizeToFit];
-    label.center = containerView.center;
-    [containerView addSubview:label];
+    
+//    NSLog(@"add time: %f", [containerView.layer convertTime:CACurrentMediaTime() fromLayer:nil]);
     
     UIBezierPath *finalPath = [UIBezierPath bezierPathWithOvalInRect:button.frame];
     
@@ -65,8 +62,11 @@
     UIBezierPath *startPath = [UIBezierPath bezierPathWithOvalInRect:CGRectInset(button.frame, -radius, -radius)];
     
     CAShapeLayer *maskLayer = [CAShapeLayer layer];
-    maskLayer.path = finalPath.CGPath;
+//    NSLog(@"mod tim1: %f", [containerView.layer convertTime:CACurrentMediaTime() fromLayer:nil]);
+    //maskLayer.path = finalPath.CGPath 当需要实现手势控制动画进度时，不要把path设成最后的状态，因为如果用户取消手势返回，动画回滚，会出现闪屏的现象，选择设置removedOnCompletion和fillMode来实现动画结果的效果吧
+    maskLayer.path = startPath.CGPath;
     fromVC.view.layer.mask = maskLayer;
+//    NSLog(@"mod tim2: %f", [containerView.layer convertTime:CACurrentMediaTime() fromLayer:nil]);
     
     
     CABasicAnimation *pingAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
@@ -75,7 +75,8 @@
     pingAnimation.duration = [self transitionDuration:transitionContext];
     pingAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     pingAnimation.delegate = self;
-    pingAnimation.removedOnCompletion = NO;
+    pingAnimation.removedOnCompletion = NO;  //看上面
+    pingAnimation.fillMode = kCAFillModeForwards; //看上面
     
     [maskLayer addAnimation:pingAnimation forKey:@"pathInvert"];
     
@@ -98,17 +99,10 @@
 }
 
 
-
-- (void)animationEnded:(BOOL)transitionCompleted
-{
-    NSLog(@"%@", NSStringFromSelector(_cmd));
-}
-
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
 {
-    UIView *containView = [self.transitionContext containerView];
-    NSLog(@"%d", containView.hidden);
-    NSLog(@"animationDidStop!!!");
+//    UIView *containView = [self.transitionContext containerView];
+//    NSLog(@"end time: %f speed: %f", [containView.layer convertTime:CACurrentMediaTime() fromLayer:nil], containView.layer.speed);
     [self.transitionContext completeTransition:![self.transitionContext transitionWasCancelled]];
     [self.transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey].view.layer.mask = nil;
     [self.transitionContext viewControllerForKey:UITransitionContextToViewControllerKey].view.layer.mask = nil;

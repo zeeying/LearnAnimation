@@ -18,8 +18,8 @@
 
 @implementation SecondViewController
 {
-    UIPercentDrivenInteractiveTransition *percentInteractiveTransition;
-//    UIPercentDrivenInteractiveTransition *percentTransition;
+//    KYPercentDriventInteractiveTransition *percentInteractiveTransition;
+    UIPercentDrivenInteractiveTransition *percentTransition;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -48,45 +48,46 @@
 
 - (void)edgePan:(UIScreenEdgePanGestureRecognizer *)recognizer
 {
-//    self.pingInvertTransition.shouldBeginInteractiveTransition = YES;
-//    
-//    if (recognizer.state == UIGestureRecognizerStateBegan) {
-//        [self.navigationController popViewControllerAnimated:YES];
-//    }
-//    [self.pingInvertTransition handleGesture:recognizer];
+    self.pingInvertTransition.shouldBeginInteractiveTransition = YES;
     
-    float progress = [recognizer translationInView:recognizer.view].x / (recognizer.view.bounds.size.width * 1.0);
-    progress = fabsf(progress);
-    progress = MIN(1.0, MAX(0.0, progress));
-    
-    switch (recognizer.state) {
-        case UIGestureRecognizerStateBegan:
-            percentInteractiveTransition = [KYPercentDriventInteractiveTransition new];
-            [self.navigationController popViewControllerAnimated:YES];
-            break;
-        case UIGestureRecognizerStateChanged:
-            [percentInteractiveTransition updateInteractiveTransition:progress];
-            break;
-        case UIGestureRecognizerStateCancelled:
-        case UIGestureRecognizerStateEnded:
-            if (progress > 0.5) {
-                percentInteractiveTransition.completionSpeed = progress;
-                [percentInteractiveTransition finishInteractiveTransition];
-            } else {
-                percentInteractiveTransition.completionSpeed = 1.0 - progress;
-                [percentInteractiveTransition cancelInteractiveTransition];
-            }
-            percentInteractiveTransition = nil;
-            break;
-            
-        default:
-            break;
+    if (recognizer.state == UIGestureRecognizerStateBegan) {
+        [self.navigationController popViewControllerAnimated:YES];
     }
+    [self.pingInvertTransition handleGesture:recognizer];
+
+//    float progress = [recognizer translationInView:recognizer.view].x / (recognizer.view.bounds.size.width * 1.0);
+//    progress = fabsf(progress);
+//    progress = MIN(1.0, MAX(0.0, progress));
+//    
+//    switch (recognizer.state) {
+//        case UIGestureRecognizerStateBegan:
+//            percentInteractiveTransition = [KYPercentDriventInteractiveTransition new];
+//            [self.navigationController popViewControllerAnimated:YES];
+//            break;
+//        case UIGestureRecognizerStateChanged:
+//            [percentInteractiveTransition updateInteractiveTransition:progress];
+//            break;
+//        case UIGestureRecognizerStateCancelled:
+//        case UIGestureRecognizerStateEnded:
+//            if (progress > 0.5) {
+//                percentInteractiveTransition.completionSpeed = progress;
+//                [percentInteractiveTransition finishInteractiveTransition];
+//            } else {
+//                percentInteractiveTransition.completionSpeed = 1.0 - progress;
+//                [percentInteractiveTransition cancelInteractiveTransition];
+//            }
+//            percentInteractiveTransition = nil;
+//            break;
+//            
+//        default:
+//            break;
+//    }
 }
 
 - (id<UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController interactionControllerForAnimationController:(id<UIViewControllerAnimatedTransitioning>)animationController
 {
-    return percentInteractiveTransition;
+    return self.pingInvertTransition.shouldBeginInteractiveTransition ? self.pingInvertTransition : nil;
+//    return percentInteractiveTransition;
 }
 /*
 #pragma mark - Navigation

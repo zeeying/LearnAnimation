@@ -11,7 +11,4 @@
 
 @interface PingTransition : NSObject <UIViewControllerAnimatedTransitioning>
 
-- (void)finishInteractiveTransition;
-- (void)cancalInteractiveTransition;
-
 @end
