@@ -1,0 +1,308 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		411307C51C25B2BC000BD582 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 411307C41C25B2BC000BD582 /* main.m */; };
+		411307C81C25B2BC000BD582 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 411307C71C25B2BC000BD582 /* AppDelegate.m */; };
+		411307CB1C25B2BC000BD582 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 411307CA1C25B2BC000BD582 /* ViewController.m */; };
+		411307D01C25B2BC000BD582 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 411307CF1C25B2BC000BD582 /* Assets.xcassets */; };
+		411307D31C25B2BC000BD582 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 411307D11C25B2BC000BD582 /* LaunchScreen.storyboard */; };
+		411307DD1C25B31E000BD582 /* DownloadButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 411307DC1C25B31E000BD582 /* DownloadButton.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		411307C01C25B2BC000BD582 /* DownloadButtonDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DownloadButtonDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		411307C41C25B2BC000BD582 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		411307C61C25B2BC000BD582 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		411307C71C25B2BC000BD582 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		411307C91C25B2BC000BD582 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		411307CA1C25B2BC000BD582 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		411307CF1C25B2BC000BD582 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		411307D21C25B2BC000BD582 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		411307D41C25B2BC000BD582 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		411307DB1C25B31E000BD582 /* DownloadButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DownloadButton.h; path = DownloadButton/DownloadButton.h; sourceTree = "<group>"; };
+		411307DC1C25B31E000BD582 /* DownloadButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DownloadButton.m; path = DownloadButton/DownloadButton.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		411307BD1C25B2BC000BD582 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		411307B71C25B2BC000BD582 = {
+			isa = PBXGroup;
+			children = (
+				411307C21C25B2BC000BD582 /* DownloadButtonDemo */,
+				411307C11C25B2BC000BD582 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		411307C11C25B2BC000BD582 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				411307C01C25B2BC000BD582 /* DownloadButtonDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		411307C21C25B2BC000BD582 /* DownloadButtonDemo */ = {
+			isa = PBXGroup;
+			children = (
+				411307DA1C25B2EF000BD582 /* DownloadButton */,
+				411307C61C25B2BC000BD582 /* AppDelegate.h */,
+				411307C71C25B2BC000BD582 /* AppDelegate.m */,
+				411307C91C25B2BC000BD582 /* ViewController.h */,
+				411307CA1C25B2BC000BD582 /* ViewController.m */,
+				411307CF1C25B2BC000BD582 /* Assets.xcassets */,
+				411307D11C25B2BC000BD582 /* LaunchScreen.storyboard */,
+				411307D41C25B2BC000BD582 /* Info.plist */,
+				411307C31C25B2BC000BD582 /* Supporting Files */,
+			);
+			path = DownloadButtonDemo;
+			sourceTree = "<group>";
+		};
+		411307C31C25B2BC000BD582 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				411307C41C25B2BC000BD582 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		411307DA1C25B2EF000BD582 /* DownloadButton */ = {
+			isa = PBXGroup;
+			children = (
+				411307DB1C25B31E000BD582 /* DownloadButton.h */,
+				411307DC1C25B31E000BD582 /* DownloadButton.m */,
+			);
+			name = DownloadButton;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		411307BF1C25B2BC000BD582 /* DownloadButtonDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 411307D71C25B2BC000BD582 /* Build configuration list for PBXNativeTarget "DownloadButtonDemo" */;
+			buildPhases = (
+				411307BC1C25B2BC000BD582 /* Sources */,
+				411307BD1C25B2BC000BD582 /* Frameworks */,
+				411307BE1C25B2BC000BD582 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DownloadButtonDemo;
+			productName = DownloadButtonDemo;
+			productReference = 411307C01C25B2BC000BD582 /* DownloadButtonDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		411307B81C25B2BC000BD582 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = zengzheying;
+				TargetAttributes = {
+					411307BF1C25B2BC000BD582 = {
+						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = 6EQ3RAPVA8;
+					};
+				};
+			};
+			buildConfigurationList = 411307BB1C25B2BC000BD582 /* Build configuration list for PBXProject "DownloadButtonDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 411307B71C25B2BC000BD582;
+			productRefGroup = 411307C11C25B2BC000BD582 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				411307BF1C25B2BC000BD582 /* DownloadButtonDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		411307BE1C25B2BC000BD582 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				411307D31C25B2BC000BD582 /* LaunchScreen.storyboard in Resources */,
+				411307D01C25B2BC000BD582 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		411307BC1C25B2BC000BD582 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				411307CB1C25B2BC000BD582 /* ViewController.m in Sources */,
+				411307C81C25B2BC000BD582 /* AppDelegate.m in Sources */,
+				411307C51C25B2BC000BD582 /* main.m in Sources */,
+				411307DD1C25B31E000BD582 /* DownloadButton.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		411307D11C25B2BC000BD582 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				411307D21C25B2BC000BD582 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		411307D51C25B2BC000BD582 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		411307D61C25B2BC000BD582 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		411307D81C25B2BC000BD582 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = DownloadButtonDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.zzy.DownloadButtonDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		411307D91C25B2BC000BD582 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = DownloadButtonDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.zzy.DownloadButtonDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		411307BB1C25B2BC000BD582 /* Build configuration list for PBXProject "DownloadButtonDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				411307D51C25B2BC000BD582 /* Debug */,
+				411307D61C25B2BC000BD582 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		411307D71C25B2BC000BD582 /* Build configuration list for PBXNativeTarget "DownloadButtonDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				411307D81C25B2BC000BD582 /* Debug */,
+				411307D91C25B2BC000BD582 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 411307B81C25B2BC000BD582 /* Project object */;
+}
